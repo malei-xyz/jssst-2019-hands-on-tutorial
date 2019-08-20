@@ -102,6 +102,10 @@ def apply_random_transformation(image_origin, tr_metadata):
     apply a sequence of image transformations to the image 
     :return transformed_data: a set of transformed images
     :return ssim_value: the ssim value comparing between the original image and the transformed one w.r.t pixel-value transformations
+
+    example:
+    new_img = blur(image_origin, tr_metadata['sigma_max_bound'])
+    ssim_value = L1_norm(image_origin, new_img)
     '''
     transformed_data = []
     # apply mutation using the metadata parameters 
@@ -147,6 +151,19 @@ def store_data(id, data):
         os.mkdir('./test_images')
     matplotlib.image.imsave("./test_images/id_{}.png".format(id), data)
 
+
+def L1_norm(img1, img2):
+    return np.linalg.norm((img1-img2), ord=1)
+
+
+def L2_norm(img1, img2):
+    return np.linalg.norm(img1 - img2)
+
+
+def Linfinity_norm(img1, img2):
+    return np.linalg.norm(img1 - img2, np.inf)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--threshold', help='help')
@@ -162,4 +179,4 @@ if __name__ == "__main__":
         mutated_images, ssim_value = apply_random_transformation(image, tr_meta)
         if ssim_value > ssim_threshold:
             store_data(i, image)
-      
+

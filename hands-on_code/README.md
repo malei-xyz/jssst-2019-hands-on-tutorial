@@ -13,6 +13,7 @@ The objective is to implement a metamorphic testing solution for detecting poten
 * scikit-image
 * scipy
 
+The code has been tested in mac and windows
 If you don't have these packages, please follow the commands to install them.
 ```
 pip install tensorflow
