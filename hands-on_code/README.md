@@ -1,4 +1,5 @@
 
+
 # Hands-On Coding Tasks
 The objective is to implement a metamorphic testing solution for detecting potential issues of Deep Neural Networks (DNNs) applied in computer vision. To enable the automation of large-scale test cases generation, it should leverage multiple image transformations to build large number of metamorphic transformations and their following-up tests, with aim of finding DNN’s erroneous behaviors. In fact, the defined metamorphic transformation need to be designed to preserve both of transformed and genuine input semantically equivalent. Thus, we should respect some conservative rules and sanitize the validity of each mutated input data before checking the following-up test. As an indicator of the amount of logic explored by testing inputs, we use neuronal coverage criteria that, conceptually, estimate the coverage of neurons' activations states. Therefore, we should store each valid mutant created that was capable to spawn a failed test.
 
@@ -6,6 +7,8 @@ The objective is to implement a metamorphic testing solution for detecting poten
 
 ## Requirement
 * Python 3
+* TensorFlow (version >= 1.12.0)
+If you don't have these packages, please follow these commands to install them.
 ```
 Python 3
 pip install tensorflow
