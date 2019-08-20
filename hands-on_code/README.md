@@ -6,7 +6,7 @@ The objective is to implement a metamorphic testing solution for detecting poten
 
 ## Requirement
 ```
-pip install requirements
+pip install -r requirements.txt
 ```
 
 ## Metamorphic Transformation

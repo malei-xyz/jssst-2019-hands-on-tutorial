@@ -40,7 +40,7 @@ def test_model(checkpoint_path, model, n_elements, max_iterations, testing_datas
         generator = generators.Generator(data_shape, sess, model, coverage_analyzer)
         for i in range(sample_size):
             print('running the example {}/{}'.format(i,sample_size))
-            image = sample_features[i]
+            image = sample_features[i].reshape(1, sample_features[i].shape[0], sample_features[i].shape[1])
             curr_target = sample_labels[i]
             generator.run(image, curr_target, max_iterations)
 
