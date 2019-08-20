@@ -5,8 +5,14 @@ The objective is to implement a metamorphic testing solution for detecting poten
 **Notice: No prior knowledge on image processing and Tensorflow (TF) development is required. All the code related to the TF models and image processing is given and your coding tasks focus on metamorphic testing and coverage evaluation.**
 
 ## Requirement
+* Python 3
 ```
-pip install -r requirements.txt
+Python 3
+pip install tensorflow
+pip install matplotlib
+pip install pillow
+pip install scikit-image
+pip install scipy
 ```
 
 ## Metamorphic Transformation
@@ -20,15 +26,15 @@ The first task is to implement `transformer.apply_random_transformation` that ap
 
 As a test, you can use the following execution that allows to sample 1000 random images from MNIST test data, perform random metamorphic transformations on them, store in _test_images_ folder the inputs whose corresponding ssim is higher than 0.75 :
 ```console
-houssem@semla:~$ python transformer.py --threshold 0.75 --attempts 1000
+python transformer.py --threshold 0.75 --attempts 1000
 ```
 ## Follow-up Test
 The second task is to develop the `Generator.check_adv_objective` that takes the logits returned by the DNN for the transformed data to check if the test fails or succeeds, then stores the image corresponding to the failure tests.
 
 As a test, you can use the following execution that allows to train the variant of LeNet model and perform the metamorphic testing while providing the NC value reached by the generated test cases :
 ```console
-houssem@semla:~$ python train.py --epochs 10 --batch 64 --lr 1.0 --lambda 0.0004 --keep 0.5
-houssem@semla:~$ python test.py --n 100 --max 10 --cov nc
+python train.py --epochs 10 --batch 64 --lr 1.0 --lambda 0.0004 --keep 0.5
+python test.py --n 100 --max 10 --cov nc
 ```
 ## K-multisections Coverage Criteria
 Once you have done the previous tasks, you will observe that higher neuron coverage can be easily achieved by a few test data points. Indeed, Neuron Coverage introduced by DeepXplore considers the neuron to be active or not, given two neuron’s states that are inspired from branch coverage of traditional programs where there are two states of the branch condition (True or False). However, the activations are continuous outputs, so k-Multisection Neuron Coverage(KMNC) proposed by DeepGauge refines the discretization of activations. It divides the range of activations triggered by the training data (lower and upper bounds for each neuron activation) into _k_ sections. Thus, one neuron's activation is belong to one of those _k_ sections and the KMNC consists of covering the total of _k_ sections of all the DNN's neurons. 
@@ -37,5 +43,5 @@ The third task is to add the KMNC as a coverage criteria, so inpired from the im
 
 As a test, you can re-execute the testing process with KMNC as a coverage measure :
 ```console
-houssem@semla:~$ python test.py --n 100 --max 10 --cov kmnc
+python test.py --n 100 --max 10 --cov kmnc
 ```
