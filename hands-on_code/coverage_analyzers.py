@@ -98,6 +98,7 @@ class KMNC():
         self.data_path = data_path 
         # the layers that are considered in neuron coverage computation
         self.layer_names = layer_names
+        self.tensors = []
 
         for layer_name in self.layer_names:
             layer_tensor = _as_graph_element(layer_name)
