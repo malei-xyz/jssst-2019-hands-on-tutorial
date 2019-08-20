@@ -8,9 +8,13 @@ The objective is to implement a metamorphic testing solution for detecting poten
 ## Requirement
 * Python 3
 * TensorFlow (version >= 1.12.0)
-If you don't have these packages, please follow these commands to install them.
+* matplotlib
+* pillow
+* scikit-image
+* scipy
+
+If you don't have these packages, please follow the commands to install them.
 ```
-Python 3
 pip install tensorflow
 pip install matplotlib
 pip install pillow
