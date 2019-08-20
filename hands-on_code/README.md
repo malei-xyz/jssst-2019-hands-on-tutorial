@@ -1,7 +1,14 @@
-# SEMLA Hands-On Coding Tasks
+
+# Hands-On Coding Tasks
 The objective is to implement a metamorphic testing solution for detecting potential issues of Deep Neural Networks (DNNs) applied in computer vision. To enable the automation of large-scale test cases generation, it should leverage multiple image transformations to build large number of metamorphic transformations and their following-up tests, with aim of finding DNN’s erroneous behaviors. In fact, the defined metamorphic transformation need to be designed to preserve both of transformed and genuine input semantically equivalent. Thus, we should respect some conservative rules and sanitize the validity of each mutated input data before checking the following-up test. As an indicator of the amount of logic explored by testing inputs, we use neuronal coverage criteria that, conceptually, estimate the coverage of neurons' activations states. Therefore, we should store each valid mutant created that was capable to spawn a failed test.
 
 **Notice: No prior knowledge on image processing and Tensorflow (TF) development is required. All the code related to the TF models and image processing is given and your coding tasks focus on metamorphic testing and coverage evaluation.**
+
+## Requirement
+```
+pip install requirements
+```
+
 ## Metamorphic Transformation
 The component `transformer` contains different mutations from two categories of image-based transformations:
 
