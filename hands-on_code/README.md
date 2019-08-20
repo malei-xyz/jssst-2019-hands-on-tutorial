@@ -57,6 +57,9 @@ python test.py --n 100 --max 10 --cov kmnc
 
 ## Acknowledgement
 The code is from the fomer tutorial:
+
 Metamorphic Testing of Deep Neural Networks
+
  _Moderators_: Houssem Ben Braiek, Lei Ma, Foutse Khomh.
+ 
 Original code: [https://github.com/hoss-bb/semla_hands-on_coding](https://github.com/hoss-bb/semla_hands-on_coding)
