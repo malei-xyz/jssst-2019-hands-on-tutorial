@@ -83,3 +83,4 @@ if __name__ == "__main__":
             coverage_analyzer.save_neurons_data()
     checkpoint_path = "./backup/lenet.ckpt"
     test_model(checkpoint_path=checkpoint_path, model=model, n_elements=n_elements, max_iterations=max_iterations, testing_dataset=(x_test, y_test), coverage_analyzer=coverage_analyzer)
+

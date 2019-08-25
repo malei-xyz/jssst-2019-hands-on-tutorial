@@ -104,9 +104,17 @@ def apply_random_transformation(image_origin, tr_metadata):
     :return ssim_value: the ssim value comparing between the original image and the transformed one w.r.t pixel-value transformations
 
     example:
-    new_img = blur(image_origin, tr_metadata['sigma_max_bound'])
-    ssim_value = L1_norm(image_origin, new_img)
+    image = image_origin.copy()
+
+    mutated_image = blur(image_origin, tr_metadata['sigma_max_bound'])
+    is_color = len(image.shape)==3
+    ssim_value = ssim(np.float32(mutated_image), np.float32(image_origin), multichannel=is_color)
+    return mutated_image, ssim_value
+
     '''
+
+
+
     transformed_data = []
     # apply mutation using the metadata parameters 
     
@@ -152,16 +160,16 @@ def store_data(id, data):
     matplotlib.image.imsave("./test_images/id_{}.png".format(id), data)
 
 
-def L1_norm(img1, img2):
-    return np.linalg.norm((img1-img2), ord=1)
+# def L1_norm(img1, img2):
+#     return np.linalg.norm((img1-img2), ord=1)
 
 
-def L2_norm(img1, img2):
-    return np.linalg.norm(img1 - img2)
+# def L2_norm(img1, img2):
+#     return np.linalg.norm(img1 - img2)
 
 
-def Linfinity_norm(img1, img2):
-    return np.linalg.norm(img1 - img2, np.inf)
+# def Linfinity_norm(img1, img2):
+#     return np.linalg.norm(img1 - img2, np.inf)
 
 
 if __name__ == "__main__":
