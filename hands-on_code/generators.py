@@ -24,7 +24,11 @@ class Generator(object):
         :param data: a set of inputs
         :param logits: a set of logits (scores w.r.t labels for each input)
         '''
-        pass
+        predict_classes = np.argmax(logits, axis=1)
+        for idx in range(predict_classes.shape[0]):
+            if(predict_classes[idx] != self.target_class):
+                self.store_data(data[idx], predict_classes[idx])
+        # pass
 
     def store_data(self, data, predict_class):
         self.adv_found += 1

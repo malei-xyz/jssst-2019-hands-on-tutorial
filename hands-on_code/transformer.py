@@ -104,16 +104,13 @@ def apply_random_transformation(image_origin, tr_metadata):
     :return ssim_value: the ssim value comparing between the original image and the transformed one w.r.t pixel-value transformations
 
     example:
-    image = image_origin.copy()
 
+    image = image_origin.copy()
     mutated_image = blur(image_origin, tr_metadata['sigma_max_bound'])
-    is_color = len(image.shape)==3
-    ssim_value = ssim(np.float32(mutated_image), np.float32(image_origin), multichannel=is_color)
+    ssim_value = ssim(mutated_image[0], image_origin[0], multichannel=False)
     return mutated_image, ssim_value
 
     '''
-
-
 
     transformed_data = []
     # apply mutation using the metadata parameters 
