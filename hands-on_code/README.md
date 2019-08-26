@@ -48,7 +48,7 @@ The second task is to develop the `Generator.check_adv_objective` that takes the
 
 As a test, you can use the following execution that allows to train the variant of LeNet model and perform the metamorphic testing while providing the NC value reached by the generated test cases :
 ```console
-python train.py --epochs 10 --batch 64 --lr 1.0 --lambda 0.0004 --keep 0.5
+python train.py --epochs 1 --batch 512 --lr 1.0 --lambda 0.0004 --keep 0.5
 python test.py --n 100 --max 10 --cov nc
 ```
 ## K-multisections Coverage Criteria
